@@ -19,8 +19,9 @@
 %p.version
   = t('powered_by')
   %a{ :href => "http://radiantcms.org" } Radiant CMS
-  = t('version')   
+  = t('version')
   = Radiant.loaded_via_gem? ? "#{Radiant::Version} (gem)." : "#{Radiant::Version}."
 
+  <br>
   <script src="http://ulogin.ru/js/ulogin.js"></script>
-  <a href="http://localhost:3000/ulogin/login" id="uLogin" x-ulogin-params="display=window&fields=first_name,last_name,email,photo&redirect_uri=http%3A%2F%2F#{request.host}%3A#{request.port}%2Fadmin%2Fulogin"><img src="http://ulogin.ru/img/button.png" width=187 height=30 alt="МультиВход"/></a>
+  <a href="#" id="uLogin" x-ulogin-params="display=window&fields=first_name,last_name,email,photo&redirect_uri=http%3A%2F%2F#{request.host}%3A#{request.port}%2Fadmin%2Fulogin"><img src="http://ulogin.ru/img/button.png" width=187 height=30 alt="МультиВход"/></a>
