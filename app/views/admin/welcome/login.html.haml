@@ -1,6 +1,9 @@
 - body_classes << "single_form"
 
 #single_form
+  <script src="http://ulogin.ru/js/ulogin.js"></script>
+  <div align="center" id="uLogin" x-ulogin-params="display=panel&fields=first_name,last_name,email,photo&providers=vkontakte,odnoklassniki,mailru,facebook&hidden=twitter,google,yandex,livejournal,openid&redirect_uri=http%3A%2F%2F#{request.host}%3A#{request.port}%2Fadmin%2Fulogin"></div>
+
   %h1= t('please_login')       
 
   - form_tag login_url do
@@ -22,6 +25,3 @@
   = t('version')
   = Radiant.loaded_via_gem? ? "#{Radiant::Version} (gem)." : "#{Radiant::Version}."
 
-  <br>
-  <script src="http://ulogin.ru/js/ulogin.js"></script>
-  <a href="#" id="uLogin" x-ulogin-params="display=window&fields=first_name,last_name,email,photo&redirect_uri=http%3A%2F%2F#{request.host}%3A#{request.port}%2Fadmin%2Fulogin"><img src="http://ulogin.ru/img/button.png" width=187 height=30 alt="МультиВход"/></a>

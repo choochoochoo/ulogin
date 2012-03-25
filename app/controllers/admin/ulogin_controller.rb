@@ -31,13 +31,13 @@ class Admin::UloginController < ApplicationController
       # если не nil
       if user['uid']
         # смотрим есть ли в базе наш юзер
-        newuser = User.find_by_login('ulogin_' + user['network'] + '_' + user['email'])
+        newuser = User.find_by_login(user['email'])
         # если nil, т.е юзера нет
         unless newuser
           # формируем пароль
           pass = getPassword
           # создаем юзера
-          newuser = User.new(:name => user['first_name'], :login => 'ulogin_' + user['network'] + '_' + user['email'], :password => pass, :password_confirmation => pass, :email => user['email'])
+          newuser = User.new(:name => user['first_name'], :login => user['email'], :password => pass, :password_confirmation => pass, :email => user['email'])
           # записываем в базу
           newuser.save
         end
